@@ -17,7 +17,7 @@ namespace AverageHeartRate
             HttpClient httpClient = new();
             DateTime startDate = new(2021, 11, 30, 00, 00, 00, DateTimeKind.Local);
             startDate = startDate.AddDays(-31);
-            string myToken = "";
+            string myToken = Environment.GetEnvironmentVariable("OURA_TOKEN", EnvironmentVariableTarget.User);
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", myToken);
             string start_date;
             string end_date;
